@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Kitten Club</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="box.css">
+    <script src="java.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <nav class="nav">
+    <ul>
+        <li><a href="#" class="ttl"><img src="img/paw.png" width="55px" alt=""><b>Kitten Club</b></a></li>
+        <li class="menu">
+            <ul>
+                <li style="text-align: right;"><img src="img/bars-solid.svg" width="40px"></li>
+                <ul class="sub">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="acti.html">Activities</a></li>
+                    <li><a href="signup.html">signup</a></li>
+                </ul>
+            </ul>
+        </li>
+    </ul>
+</nav>
+    <div class="box5" style="display: flex; justify-content: space-around;">
+        <form onsubmit="return submitaction()">
+            <table>
+                <tr><td>Name:</td><td><input type="text" id="Name" required></td></tr>
+                <tr><td>Student ID:</td><td><input type="text" id="StudentID" pattern="^[0-9]{8}" required><br></td></tr>
+                <tr><td>Email:</td><td><input type="text" id="Email" ></td></tr>
+                <tr><td>News Letter:</td><td><input type="checkbox" name="" id="News"></td></tr>
+                <tr><td><input type="submit" value="Join US"></td></tr>
+            </table>
+        </form>
+        <img src="signup.PNG" width="" height="200px" alt="">
+    </div>
+</body>
+</html>

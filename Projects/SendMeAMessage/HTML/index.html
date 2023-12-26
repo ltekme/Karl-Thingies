@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave me a message</title>
+    <script src="form.js"></script>
+    <style>
+        body {
+            background-color: rgb(178, 245, 222);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="margin: 0;">Leave me a message</h2>
+    <div id="maincontent">
+        Name: <input type="text" id="name" placeholder="(optional)"><br>
+        Message: <br><textarea name="textbox" id="message" cols="30" rows="5" required></textarea><br>
+        <button onclick="sumbit()">Submit</button>
+    </div>
+    
+    
+    <div id="respons"></div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+/* fuck me */
+.box5 {
+    margin-top: 10px;
+}
+.box{
+    background-color:blanchedalmond;
+    padding: 2px;
+    margin: auto;
+    display: flex;
+}
+p {font-size: 20px;margin: 0 0;}
+.box2{
+    margin: 1px;
+    padding:2px;
+    display: inline-flex;
+}
+.box2 img{
+    padding-right: 10px;
+}
+.box2-1{
+    display: block;
+    width: auto
+}
+.box2-1{
+    width:auto
+}
+.box2-1 div img{
+    width: 100px;
+    height: 100px;
+}
+.box3 {
+    margin-left: 5px;
+}
+.box3 h2,.box2 h2, .box5 p, .box5 h1,.box5 h2 {margin: 0;}
+@media only screen and (max-width: 1000px) {
+    .box2, .box3, .box4{
+        display: inline-block;
+    }
+    .box2-1{
+        width: auto;
+    }
+    .box5{
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    body{
+        margin: auto;
+        width: auto;
+    }
+}
