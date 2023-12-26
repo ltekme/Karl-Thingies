@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="lambda_loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+    <style>
+        #session_items div{
+            display: inline-block;
+            background-color: rgb(253, 253, 253);
+            border: 2px rgb(0, 0, 0) solid;
+            padding:4px;
+            margin: 4px;
+            font-weight: 100;
+        }
+    </style>
+    <title>View Responses: </title>
+</head>
+<body>
+    <div>
+        <h2 style="margin: 0;">Submit your response</h2>
+        <table>
+            <tr>
+                <th>Session Number: <input type="text" id="sid" value="" required></th>
+                <th>
+                    <label><input type="checkbox" name="shw_item">Time</label>
+                    <label><input type="checkbox" name="shw_item">Name</label>
+                    <label><input type="checkbox" name="shw_item" checked>Responses</label>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <span id="response_url"></span>
+                    <div id='qrcode'></div>
+                </td>
+                <td>
+                    <button onclick="getResponse()">Get response</button><br>
+                    <a id="last_updated">Last last_updated</a>
+                </td>
+            </tr>
+        </table>
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            let sid = urlParams.get('sid');
+            document.getElementById('sid').value = sid;
+            document.title = `View Responses: ${sid}`;
+            let response_url = `submit.html?sid=${sid}`
+            const qrcode = new QRCode(document.getElementById('qrcode'), {
+                    text: response_url,
+                    width: 128,
+                    height: 128,
+                    colorDark : '#000',
+                    colorLight : '#fff',
+                    correctLevel : QRCode.CorrectLevel.H
+                });
+            document.getElementById('response_url').innerHTML = `<a href=${response_url}>Session Link</a>`
+        </script>
+    </div>
+    <div id='session_items'>
+
+    </div>
+</body>
+</html>

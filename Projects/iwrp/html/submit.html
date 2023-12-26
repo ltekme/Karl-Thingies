@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="lambda_loader.js"></script>
+    <title>Submit Your Response: </title>
+</head>
+<body>
+    <div>
+        <h2 style="margin: 0;">Submit your response</h2>
+            <table class="main-input">
+                <tr>
+                    <td>Session ID:</td>
+                    <td><input type="text" id="sid" required></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" id="name" placeholder="optional"></td>
+                </tr>
+                <tr>
+                    <td>Message:</td>
+                    <td><textarea name="textbox" id="msg" cols="30" rows="5"></textarea></td>
+                </tr>
+            </table>
+            <input type="submit" onclick="submit()" value="Submit Your Response">
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        let sid = urlParams.get('sid');
+        document.getElementById('sid').value = sid;
+        document.title = `Submit Your Response: ${sid}`;
+    </script>
+</body>
+</html>

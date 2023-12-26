@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>IWRP</title>
+    <style>
+        body {
+            background-color: rgb(207, 255, 238);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: large;
+        }
+        #maincontent{
+            background-color: rgb(180, 231, 255);
+            border: 3px solid black;
+            padding: 2px;
+            display: inline-block;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="margin: 0;">IWRP</h2>    
+    <div id="maincontent">
+    <button onclick="createSession()">Create New Session</button><br> 
+    or<br>
+    Session Number: <input type="text" id="sid"><br>
+    <button onclick="displaySession()">Resume Session</button><br>
+
+    <button onclick="submitSession()">Create response</button><br>
+</div>
+</body>
+<script>
+    function createSession() {
+        let sessionNumber = Math.floor(100000 + Math.random() * 900000);
+        document.getElementById('sid').value = sessionNumber;
+        window.location.href = 'display.html?sid=' + sessionNumber;
+    }
+
+    function displaySession() {
+        let sessionNumber = document.getElementById('sid').value;
+        if (sessionNumber.length !== 6 || !(/^\d+$/.test(sessionNumber))) {
+            alert('Invalid session');
+        } else {
+            window.location.href = 'display.html?sid=' + sessionNumber;
+        }
+    }
+    function submitSession() {
+        let sessionNumber = document.getElementById('sid').value;
+        if (sessionNumber.length !== 10 || !(/^\d+$/.test(sessionNumber))) {
+            alert('Invalid session');
+        } else {
+            window.location.href = 'submit.html?sid=' + sessionNumber;
+        }
+    }
+</script>
+</html>
