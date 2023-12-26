@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="navfoo.css" />
+    <script src="reader.js"></script>
+    <style>
+      /*story styling*/
+      #story_content {
+        margin: 2em;
+      }
+      #story_content p {
+        text-indent: 2em;
+        line-height: 0.7cm;
+      }
+      #story_content h1 {
+        margin: 0;
+      }
+    </style>
+    <title>Story Reader HTML</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <h1><a href="">Story Reader</a></h1>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a id="lang_selector" href="#"></a></li>
+        <li><a href="#">More Info</a></li>
+      </ul>
+    </div>
+
+    <div id="story_content">
+      <h1 id="story_title"></h1>
+    </div>
+
+    <div class="footer">
+      <ul>
+        <li><a href="#" class="next_page">Previous</a></li>
+        <li><a href="#" class="next_page">Next</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

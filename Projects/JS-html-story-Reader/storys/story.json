@@ -1,0 +1,22 @@
+{
+  "story01": {
+    "zh": {
+      "title": "Story 1 Title",
+      "content_url": "/storys/story01.txt"
+    },
+    "en": {
+      "title": "Story 1 Title Eng",
+      "content_url": "/storys/story01.en.txt"
+    }
+  },
+  "story02": {
+    "zh": {
+      "title": "Story 2 Title",
+      "content_url": "/storys/story02.txt"
+    },
+    "en": {
+      "title": "Story 2 Title Eng",
+      "content_url": "/storys/story02.en.txt"
+    }
+  }
+}
