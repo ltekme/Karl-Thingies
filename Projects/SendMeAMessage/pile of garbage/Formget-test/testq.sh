@@ -1,1 +1,0 @@
-curl "https://api.aws.ltek.me/form/sumbit"
