@@ -4,8 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: rgb(7, 4, 27);
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+        }
+        .box {
+            width: fit-content;
+            margin: auto;
+            text-align: center;
+        }
+        .box h2 {
+            color: orange;
+        }
+        .box hr {
+            width: 20em;
+            margin: 0;
+        }
+        .innerbox {
+            width: fit-content;
+            margin:auto;
+            padding: 2.5vh;
+        }
+        .innerbox tr td {
+            text-align: left;
+            padding: .5vh;
+        }
+        .btn {
+            border: 1px solid;
+            height: fit-content;
+            width: fit-content;
+            background-color: inherit;
+            color: orange;
+            font-size: 1rem;
+            margin-bottom: 3vh;
+        }
+        .btn:hover {
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
-    Document
+    <div class="box">
+        <h2>Send Me A Message</h1>
+        <hr />
+        <table class="innerbox">
+            <tr><td>Name</td><td><input type="text" id="name" placeholder="(optional)"></td></tr>
+            <tr><td>Message<span style="color: red;">*</span></td><td><input type="text" id="msg" required></td></tr>
+        </table>
+        <button onclick="ssub()" class="btn">Submit</button>
+        
+        <script>
+            const api_url = 'https://7yll41tdl8.execute-api.ap-east-1.amazonaws.com/prod/sams'
+            function ssub() {
+                let name = document.getElementById('name').value;
+                let msg = document.getElementById('msg').value;
+                if (confirm(`Name: ${name} - Message: ${msg}`)){
+                    fetch(api_url, {
+                        method: "POST",
+                        body: JSON.stringify({
+                            "name": name,
+                            "msg": msg
+                        }),
+                        headers: {
+                            "Content-type": "application/json; charset=UTF-8"
+                        }
+                    })
+                    .then((r) => r.json())
+                    .then((r) => {
+                        alert(r.ok);
+                        document.getElementById('msg').value = '';
+                    })
+                    .catch(e => {
+                        alert(e.toString())
+                    })
+                }
+            }
+        </script>
+    </div>
 </body>
 </html>
