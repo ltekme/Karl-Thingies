@@ -1,7 +1,7 @@
 import boto3
 import glob
 import os
-import zipfile
+from zipfile import ZipFile
 import requests
 import sys
 import json
@@ -10,21 +10,24 @@ import tempfile
 
 def lambda_update():
     print('update function code')
-    buckit = 'lambdafunc-hk'
-    region_name = 'ap-east-1'
+
+    # zpi file
     zipfn = 'lambda_code_iwrp.zip'
-    with zipfile.ZipFile(zipfn, "w") as z:
-        for fl in  glob.glob('lambda/*'):
-            d, f = os.path.split(fl)
-            z.write(fl, f)
+    zipfnfile = op.join(op.dirname(op.realpath(__file__)), zipfn)
+    with ZipFile(zipfnfile, "w") as zip:
+        for file in glob.glob('lambda/*'):
+            d, f = os.path.split(file)
+            zip.write(file, f)
 
     # upload file
-    function_name = 'iwrp-rw'
+    buckit = 'lambdafunc-hk'
+    region_name = 'ap-east-1'
     s3_client = boto3.client('s3', region_name=region_name)
     s3_client.upload_file(zipfn, buckit, zipfn)
 
     # update function code
-    lambda_client = boto3.client('lambda',region_name=region_name)
+    function_name = 'iwrp-rw'
+    lambda_client = boto3.client('lambda', region_name=region_name)
     function = lambda_client.get_function(FunctionName=function_name)
     status = function['Configuration']['LastUpdateStatus']
     print(f'Function Last Update Status: {status}')
