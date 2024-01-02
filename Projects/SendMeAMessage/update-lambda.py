@@ -5,6 +5,7 @@ from zipfile import ZipFile
 import requests
 import sys
 import json
+from datetime import datetime as dt
 
 cdir = op.dirname(op.realpath(__file__))
 
@@ -45,7 +46,6 @@ def lambda_update():
 
 
 url = 'https://7yll41tdl8.execute-api.ap-east-1.amazonaws.com/prod/sams'
-name = 'smam'
 args = sys.argv[1:]
 
 if '-u' in args:
@@ -66,7 +66,7 @@ if '-d' in args:
 if '-t' in args:
     print(f'GET: {requests.get(url).json()}')
     content = {
-        'msg': 'test message'
+        'msg': f'test message @ UTC:{dt.utcnow().strftime('%Y-%m-%d %H:%M:%S')}'
     }
     print(f'POST: {requests.post(url, json = content).json()}')
     
