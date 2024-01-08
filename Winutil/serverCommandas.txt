@@ -1,0 +1,20 @@
+// rename computer
+Rename-Computer -NewName rtestserver
+
+// shutdown /reboot
+shutdown /t 1 /f /r /c reboot comment
+# /t 1  -> waite 1 second
+# /f    -> force
+# /r    -> reboot
+# /c    -> comment
+PS: Restart Computer
+
+// add computer to domain
+Add-Computer -DomainName Domain01 -Server Domain01\DC01 -PassThru -Verbose
+# -PassThru -Verbose  -> get details
+# -DomainName         -> domain Name
+# -Server             -> Add using Server
+
+// update gp
+gpupdate /force
+
