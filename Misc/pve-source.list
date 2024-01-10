@@ -1,0 +1,11 @@
+deb http://deb.debian.org/debian bookworm main contrib 
+
+deb http://ftp.hk.debian.org/debian bookworm-updates main contrib
+
+# security updates
+deb http://security.debian.org bookworm-security main contrib
+
+
+
+#deb http://ftp.hk.debian.org/debian bookworm-updates main contrib # 403 error 
+#deb http://ftp.hk.debian.org/debian bookworm main contrib #403 error 
