@@ -9,6 +9,7 @@ from datetime import datetime as dt
 
 cdir = op.dirname(op.realpath(__file__))
 
+
 def lambda_update():
     print('update function code')
     
@@ -66,7 +67,7 @@ if '-d' in args:
 if '-t' in args:
     print(f'GET: {requests.get(url).json()}')
     content = {
-        'msg': f'test message @ UTC:{dt.utcnow().strftime('%Y-%m-%d %H:%M:%S')}'
+        'msg': f'test message @ UTC:{dt.utcnow().strftime("%Y-%m-%d %H:%M:%S")}'
     }
     print(f'POST: {requests.post(url, json = content).json()}')
     
