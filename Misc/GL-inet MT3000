@@ -1,0 +1,3 @@
+GL-inet MT3000 
+
+echo "CN" |dd of=/dev/mtdblock3 bs=1 seek=136
